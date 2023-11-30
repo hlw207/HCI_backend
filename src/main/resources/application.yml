@@ -1,0 +1,19 @@
+server:
+  port: 8081
+spring:
+  datasource:
+      driver-class-name: org.postgresql.Driver
+      url: jdbc:postgresql://localhost:5432/sports
+      username: postgres
+      password: 123456
+
+  jpa:
+    show-sql: true
+    database: postgresql
+    hibernate:
+      ddl-auto: update
+
+  servlet:
+    multipart:
+      max-request-size: -1
+      max-file-size: -1
