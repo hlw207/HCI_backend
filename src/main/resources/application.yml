@@ -1,9 +1,10 @@
 server:
   port: 8081
+
 spring:
   datasource:
       driver-class-name: org.postgresql.Driver
-      url: jdbc:postgresql://localhost:5432/sports
+      url: jdbc:postgresql://localhost:5432/HCI
       username: postgres
       password: 123456
 
@@ -17,3 +18,10 @@ spring:
     multipart:
       max-request-size: -1
       max-file-size: -1
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password: 123456
+      database: 0
