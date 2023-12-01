@@ -10,32 +10,20 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
+import java.util.List;
+
 @Entity
-@Builder
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserEntity {
+@Builder
+public class BrandEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @NotNull
-    private String username;
-
+    private String brand;
     @NotNull
-    private String password;
-
-    @NotNull
-    private String nickname;
-
-    @NotNull
-    private String phone;
-
-    @NotNull
-    private String profile;
-
-    @NotNull
-    private String autoGraph;
+    private List<String> carType;
 }

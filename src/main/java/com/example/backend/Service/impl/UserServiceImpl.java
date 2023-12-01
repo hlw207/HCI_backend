@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @Service
 @Slf4j
-public class userServiceImpl implements UserService {
+public class UserServiceImpl implements UserService {
 
     @Autowired
     private SessionUtil sessionUtil;
