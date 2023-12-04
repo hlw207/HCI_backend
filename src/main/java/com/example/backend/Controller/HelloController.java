@@ -11,12 +11,17 @@ import java.util.Date;
 
 @CrossOrigin(origins = "http://localhost:5174", allowCredentials = "true")
 @RestController
-@RequestMapping("/hello")
+@RequestMapping("/v1")
 public class HelloController {
 
     @PostMapping()
     public String getHello(@RequestParam String str){
         return str;
+    }
+
+    @GetMapping("hello")
+    public int getA(@RequestParam int num){
+        return num;
     }
 
 //    @PostMapping("/file")

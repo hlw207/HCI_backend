@@ -15,6 +15,7 @@ public class UserController {
 
     @PostMapping("/login")
     public void login(@RequestParam String username, @RequestParam String password){
+        System.out.println(username + password);
         userService.login(username, password);
     }
 

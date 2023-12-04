@@ -1,6 +1,7 @@
 package com.example.backend.Controller;
 
 import com.example.backend.Service.CarService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,6 +18,11 @@ public class CarController {
     @GetMapping("/brands")
     public List<String> getBrands(){
         return carService.getBrands();
+    }
+
+    @GetMapping("/brands/{id}")
+    public List<String> getBrands(@Valid @PathVariable int id){
+        return carService.getBrands(id);
     }
 
     @GetMapping("/carTypes")
