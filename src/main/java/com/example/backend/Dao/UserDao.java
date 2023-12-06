@@ -8,4 +8,8 @@ import java.util.List;
 public interface UserDao extends CrudRepository<UserEntity, Long> {
 
     UserEntity findByUsername(String username);
+
+    UserEntity findByPhone(String phone);
+
+    List<UserEntity> findAll();
 }

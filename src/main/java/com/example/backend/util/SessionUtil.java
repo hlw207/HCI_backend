@@ -12,15 +12,15 @@ public class SessionUtil {
     @Autowired
     private RedisTemplate redisTemplate;
 
-    public void login(String username, String password){
-        redisTemplate.opsForValue().set(username, password);
+    public void login(String phone, String password){
+        redisTemplate.opsForValue().set(phone, password);
     }
 
-    public void logOut(String username){
-        redisTemplate.delete(username);
+    public void logOut(String phone){
+        redisTemplate.delete(phone);
     }
 
-    public boolean session(String username){
-        return Boolean.TRUE.equals(redisTemplate.hasKey(username));
+    public boolean session(String phone){
+        return Boolean.TRUE.equals(redisTemplate.hasKey(phone));
     }
 }

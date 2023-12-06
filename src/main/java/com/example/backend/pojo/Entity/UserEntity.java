@@ -28,9 +28,6 @@ public class UserEntity {
     private String password;
 
     @NotNull
-    private String nickname;
-
-    @NotNull
     private String phone;
 
     @NotNull
