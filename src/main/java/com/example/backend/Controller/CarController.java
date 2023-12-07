@@ -1,6 +1,8 @@
 package com.example.backend.Controller;
 
 import com.example.backend.Service.CarService;
+import com.example.backend.pojo.Vo.car.CarRequest;
+import com.example.backend.pojo.Vo.car.CarVo;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -28,5 +30,11 @@ public class CarController {
     @GetMapping("/carTypes")
     public List<String> getCarTypes(@RequestParam String brand){
         return carService.getCarTypes(brand);
+    }
+
+    @PostMapping("/cars")
+    public List<CarVo> getCars(@RequestBody CarRequest carRequest){
+        System.out.println(carRequest);
+        return carService.getCars(carRequest);
     }
 }
