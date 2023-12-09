@@ -5,6 +5,9 @@ import com.example.backend.Dao.CarDao;
 import com.example.backend.Service.CarService;
 import com.example.backend.pojo.Entity.BrandEntity;
 import com.example.backend.pojo.Entity.CarEntity;
+import com.example.backend.pojo.Entity.CollectionEntity;
+import com.example.backend.pojo.Vo.car.CarCollectionVo;
+import com.example.backend.pojo.Vo.car.CarInfoVo;
 import com.example.backend.pojo.Vo.car.CarRequest;
 import com.example.backend.pojo.Vo.car.CarVo;
 import net.sourceforge.pinyin4j.PinyinHelper;
@@ -13,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CarServiceImpl implements CarService {
@@ -87,4 +91,15 @@ public class CarServiceImpl implements CarService {
         }
         return carVoList;
     }
+
+    @Override
+    public CarInfoVo getCarInfo(Long id) {
+        Optional<CarEntity> carEntity = carDao.findById(id);
+        CarEntity car = carEntity.get();
+        CarInfoVo carInfoVo = CarInfoVo.builder().name(car.getBrand() + '-' + car.getCarType()).price(car.getPrice())
+                .carDistance(car.getCarDistance()).carGear(car.getCarGear()).carAge(car.getCarAge())
+                .carPosition(car.getPosition()).carTime(car.getCarTime()).build();
+        return carInfoVo;
+    }
+
 }

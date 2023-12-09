@@ -56,4 +56,7 @@ public class CarEntity {
 
     @NotNull
     private String position;
+
+    @NotNull
+    private String carTime;
 }

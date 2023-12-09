@@ -8,4 +8,5 @@ import java.util.List;
 public interface CarDao extends CrudRepository<CarEntity, Long> {
 
     public List<CarEntity> findAll();
+
 }
