@@ -4,6 +4,8 @@ import lombok.Data;
 
 @Data
 public class CarRequest {
+    private String search;
+
     private String brand;
 
     private String carType;
