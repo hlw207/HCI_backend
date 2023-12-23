@@ -2,6 +2,7 @@ package com.example.backend.Controller;
 
 import com.example.backend.Service.CarService;
 import com.example.backend.Service.CollectionService;
+import com.example.backend.pojo.Entity.CarDetailEntity;
 import com.example.backend.pojo.Vo.car.CarCollectionVo;
 import com.example.backend.pojo.Vo.car.CarInfoVo;
 import com.example.backend.pojo.Vo.car.CarRequest;
@@ -67,5 +68,11 @@ public class CarController {
     @GetMapping("/collection")
     public List<CarCollectionVo> getCollections(@RequestParam Long userId){
         return collectionService.getCollections(userId);
+    }
+
+    @GetMapping("/carDetail/{id}")
+    public CarDetailEntity getCarDetail(@PathVariable Long id){
+        System.out.println(id);
+        return carService.getCarDetail(id);
     }
 }

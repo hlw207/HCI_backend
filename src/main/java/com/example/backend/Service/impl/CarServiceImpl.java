@@ -2,8 +2,10 @@ package com.example.backend.Service.impl;
 
 import com.example.backend.Dao.BrandDao;
 import com.example.backend.Dao.CarDao;
+import com.example.backend.Dao.CarDetailDao;
 import com.example.backend.Service.CarService;
 import com.example.backend.pojo.Entity.BrandEntity;
+import com.example.backend.pojo.Entity.CarDetailEntity;
 import com.example.backend.pojo.Entity.CarEntity;
 import com.example.backend.pojo.Entity.CollectionEntity;
 import com.example.backend.pojo.Vo.car.CarCollectionVo;
@@ -29,6 +31,9 @@ public class CarServiceImpl implements CarService {
 
     @Autowired
     private CarDao carDao;
+
+    @Autowired
+    private CarDetailDao carDetailDao;
 
     @Override
     public List<String> getBrands() {
@@ -121,8 +126,14 @@ public class CarServiceImpl implements CarService {
         CarEntity car = carEntity.get();
         CarInfoVo carInfoVo = CarInfoVo.builder().name(car.getBrand() + '-' + car.getCarType()).price(car.getPrice())
                 .carDistance(car.getCarDistance()).carGear(car.getCarGear()).carAge(car.getCarAge())
-                .carPosition(car.getPosition()).carTime(car.getCarTime()).build();
+                .carPosition(car.getPosition()).carTime(car.getCarTime()).carPollution(car.getCarPollution())
+                .picture(car.getPicture()).build();
         return carInfoVo;
+    }
+
+    @Override
+    public CarDetailEntity getCarDetail(Long id) {
+        return carDetailDao.findAllById(id);
     }
 
     private boolean canSatisfy(String carPart, String request){

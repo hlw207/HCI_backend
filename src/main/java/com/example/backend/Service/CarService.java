@@ -1,5 +1,6 @@
 package com.example.backend.Service;
 
+import com.example.backend.pojo.Entity.CarDetailEntity;
 import com.example.backend.pojo.Vo.car.CarCollectionVo;
 import com.example.backend.pojo.Vo.car.CarInfoVo;
 import com.example.backend.pojo.Vo.car.CarRequest;
@@ -19,4 +20,5 @@ public interface CarService {
 
     public CarInfoVo getCarInfo(Long id);
 
+    public CarDetailEntity getCarDetail(Long id);
 }

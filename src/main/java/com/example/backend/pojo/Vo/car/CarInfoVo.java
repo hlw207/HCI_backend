@@ -19,4 +19,8 @@ public class CarInfoVo {
     private String carGear;
 
     private String carTime;
+
+    private Double carPollution;
+
+    private String picture;
 }
